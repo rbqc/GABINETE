@@ -143,7 +143,7 @@
 						
 									<form name="form_reloj">
 										
-    										<input type="text" name="reloj" size="10" class="display-4 text-center" onfocus="window.document.form_reloj.reloj.blur()" style="background-color: #343a40; color: white;">
+    										<input type="text" name="reloj" size="10" class="h1 text-center" onfocus="window.document.form_reloj.reloj.blur()" style="background-color: #343a40; color: white;">
     										
 									</form>
 						</div>
