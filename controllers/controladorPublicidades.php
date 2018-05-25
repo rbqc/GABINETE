@@ -85,7 +85,7 @@
 						echo 'ERROR ARCHIVO YA CARGADO, VUELVA A INTENTAR
 						     <a href="../views/publicidades/nuevaPublicidad.php">Nueva publicidad</a>';
 					} else {
-						$guardar = "../$ruta_archivos$nombre";
+						$guardar = "../$ruta_archivos.$nombre";
 						move_uploaded_file($nombre_tmp, $guardar);
 						return $ruta_archivos.$nombre;
 					}
