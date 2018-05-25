@@ -1,0 +1,19 @@
+/*img{
+	width:50px;
+    height:50px;
+}
+body{
+	background-image: url(img_publicidad/logo_informaticaSistemas);
+}*/
+.sin_padding{
+	padding: 0;
+}
+.portada{
+   background: url(uploads/logos.png);
+   background-repeat: no-repeat; 
+   background-attachment: scroll;
+   background-position: 50% 50%;
+   width: 100% ;
+   text-align: center;
+ 
+}
