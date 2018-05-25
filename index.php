@@ -49,7 +49,7 @@
 
 
 
-<body onload="mueveReloj()" background="uploads/fondoF.jpg">
+<body onload="mueveReloj()" style="overflow-x: hidden;" background="uploads/fondoF.jpg">
 	<?php
 		if (isset($_SESSION['login_nombre'])){
 			if(($_SESSION['login_tipo_usuario'])=="ADMIN"){
@@ -252,12 +252,10 @@
     	        		endforeach;
         	    		?>
 
-    	    	    	
-
 					</marquee>
     			</div>
 
-    			<div class="col-xs-2 col-md-4 col-sm-4 sin_padding">
+    			<div class="col-xs-2 col-md-4 col-sm-4 sin_paddingcarousel">
     				
   					<div class="container-fluit">
 
@@ -272,6 +270,7 @@
       								<div class="carousel-item active">
           								<img class="" width="100%" height="600rem" src="uploads/log2.png">
         							</div>
+
 
       								<?php
    										$imagenes = listaImagenes();
