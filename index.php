@@ -49,95 +49,12 @@
 
 
 
-<body onload="mueveReloj()" style="overflow-x: hidden;" background="uploads/fondoF.jpg">
-	<?php
-		if (isset($_SESSION['login_nombre'])){
-			if(($_SESSION['login_tipo_usuario'])=="ADMIN"){
-	?>
+
+<body onload="mueveReloj()" background="uploads/fondoF.jpg" style="overflow-x: hidden;">
+
 				<header class="">
 					<nav class="navbar navbar-dark bg-dark navbar-expand-lg ">
 						<h1 class="h1" style="color: white"></h1>
-
-						<div class=" col-md-3 offset-md-0 text-align text-center">
-						
-									<form name="form_reloj">
-										
-    										<input type="text" name="reloj" size="10" class="display-4 text-center" onfocus="window.document.form_reloj.reloj.blur()" style="background-color: #343a40; color: white;">
-    										
-									</form>
-						</div>
-
-						
-  						<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-							<div class="navbar-nav ml-auto text-center">
-								
-								<li class="nav-item dropdown">
-							        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							          Menu
-							        </a>
-							        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							          	<a class="dropdown-item" href="views/avisos/listaAvisos.php">Avisos</a>
-							          	<a class="dropdown-item" href="views/publicidades/listaPublicidades.php">Anuncios</a>
-							         <div class="dropdown-divider"></div>
-							         	<a class="dropdown-item" href="views/registros/listaBitacora.php">Bitacora</a>
-							          	<a class="dropdown-item" href="controllers/logout.php">Logout</a>
-							      	
-							        </div>
-							    </li>
-
-							</div>
-						</div>
-					</nav>
-				</header>
-			<?php
-			}else{
-			?>		
-				<header>
-					
-					<nav class="navbar navbar-dark bg-dark navbar-expand-lg ">
-						<h1 class="h1" style="color: white"></h1>
-							<div class=" col-md-3 offset-md-0 text-align text-center">
-						
-								<form name="form_reloj">
-										
-    								<input type="text" name="reloj" size="10" class="h1 text-center" onfocus="window.document.form_reloj.reloj.blur()" style="background-color: #343a40; color: white;">
-    										
-								</form>
-							</div>	
-					
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbasarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-   							 <span class="navbar-toggler-icon"></span>
-	  					</button>
-
-  						<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-							<div class="navbar-nav ml-auto text-center">
-
-								<li class="nav-item dropdown">
-							        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							          Menu
-							        </a>
-							        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							          	<a class="dropdown-item" href="views/avisos/listaAvisos.php">Avisos</a>
-							          	<a class="dropdown-item" href="views/publicidades/listaPublicidades.php">Anuncios</a>
-							         <div class="dropdown-divider"></div>
-							          	<a class="dropdown-item" href="controllers/logout.php">Logout</a>
-							      	
-							        </div>
-							    </li>
-
-							</div>
-						</div>
-					</nav>
-					
-					
-				</header>
-	<?php
-			}
-		}else{
-	?>
-			<header class="header">
-				<nav class="navbar navbar-dark bg-dark navbar-expand-lg ">
-					<h1 class="h1" style="color: white"></h1>
 
 						<div class=" col-md-3 offset-md-0 text-align text-center">
 						
@@ -148,24 +65,40 @@
 									</form>
 						</div>
 
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="		navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-   						 <span class="navbar-toggler-icon"></span>
-  					</button>
-  					<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-						<div class="navbar-nav ml-auto text-center">
-							
-							<li class="nav-item dropdown">
+						<div class="col-md-8" align="center">
+							<h1 style="color: white">LABORATORIOS</h1>
+						</div>
+						
+  						<div class="collapse navbar-collapse col-md-1" id="navbarTogglerDemo01">
+							<div class="navbar-nav ml-auto text-center">
+								
+								<li class="nav-item dropdown">
 							        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							          Menu
+							          MENU
 							        </a>
 							        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							        <?php 
+							         	if (!isset($_SESSION['login_nombre'])){?>
+							        	<a class="dropdown-item" data-toggle="modal" data-target="#modalLogin">Iniciar sesion</a>
+							        <?php } ?>
 							          	<a class="dropdown-item" href="views/avisos/listaAvisos.php">Avisos</a>
 							          	<a class="dropdown-item" href="views/publicidades/listaPublicidades.php">Anuncios</a>
-							         
-							      		
-							</li>
+							         <div class="dropdown-divider"></div>
+							         <?php 
+							         	if (isset($_SESSION['login_nombre'])){
+							         		if(($_SESSION['login_tipo_usuario'])=="ADMIN"){
+							         ?>
+							         	<a class="dropdown-item" href="views/registros/listaBitacora.php">Bitacora</a>
+							         		<?php } ?>
+							          	<a class="dropdown-item" href="controllers/logout.php">Logout</a>
+							      	<?php } ?>
+							        </div>
+							    </li>
 
-							<button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modalLogin">Iniciar Secion</button>
+							</div>
+						</div>
+						
+					
 							<div class="modal fade " id="modalLogin" role="dialog">
 								<div class="modal-dialog">
 									<div class="modal-content">
@@ -198,23 +131,16 @@
 									</div>
 								</div>
 							</div>
-							        </div>
-							
-						</div>
-					</div>
-				</nav>
-			</header>
-	<?php
-		}
-	?>
-    
+					</nav>
+				</header>
+			
     <section>
 
 		<div class="container-fluit">
     		<div class="row text-center">
 
     			<div class="col-xs-10 col-md-8 col-sm-8 sin_padding portada" >
-    				<marquee direction="up" align="center" width="100%" height="600rem" scrollAmount="3">
+    				<marquee direction="up" align="center" width="100%" height="550rem" scrollAmount="3">
 				
 						<?php
 
@@ -268,7 +194,7 @@
       							<div class="carousel-inner">
 
       								<div class="carousel-item active">
-          								<img class="" width="100%" height="600rem" src="uploads/log2.png">
+          								<img class="" width="100%" height="550rem" src="uploads/log2.png">
         							</div>
 
 
@@ -278,7 +204,7 @@
    										foreach ($imagenes as $imagen):
    									?>
    										<div class="carousel-item">
-          									<img class="d-block" width="100%" height="600rem" src="<?php echo $imagen['ubicacion']?>">
+          									<img class="d-block" width="100%" height="550rem" src="<?php echo $imagen['ubicacion']?>">
        									</div>
    									<?php
    										endforeach;
@@ -313,16 +239,19 @@
     		</div>
     	</div>
 
-		<MARQUEE bgcolor="#343a40">
-			<h3 class="pt-sans" style="color:white">
-					LABORATORIOS DE INFORMATICA Y SISTEMAS
-			</h3>
-		</MARQUEE>
+		
 		<!--<nav>
 			<a href="http://google.com" class="espacio-derecha">Buscanos en:</a>
 			<a href="http://facebook.com" class="espacio-derecha">Tambien estamos en facebook</a>			
 		</nav>-->
     </section>
+    <footer>
+    	<MARQUEE bgcolor="#343a40">
+			<h3 class="pt-sans" style="color:white">
+					LABORATORIOS DE INFORMATICA Y SISTEMAS
+			</h3>
+		</MARQUEE>
+    </footer>
 	
 	<script src="public/css/js/jquery.js"></script>
     <script src="public/css/js/bootstrap.js"></script>
