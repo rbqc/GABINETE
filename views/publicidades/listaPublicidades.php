@@ -41,7 +41,7 @@
                                 </div>
 
                                 <h4>Imagen</h4>
-                                <div style="height: 2rem;"><input type="file" name="archivo" required></div>
+                                <div style="height: 2rem;" class="btn btn-sm"><input type="file" name="archivo" required></div>
 
                                 <input type="submit" name="registrar" value="Guardar" class="btn btn-success">
                               </form>

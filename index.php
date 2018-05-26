@@ -96,6 +96,7 @@
 							</div>
 						</div>
 						
+					
 							<div class="modal fade " id="modalLogin" role="dialog">
 								<div class="modal-dialog">
 									<div class="modal-content">
