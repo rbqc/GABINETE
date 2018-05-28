@@ -78,7 +78,7 @@
 
 		$query = "INSERT INTO avisos (CODMAT, IDDOC, IDUSUARIO, TITULO, SUBTITULO, CONTENIDO, FECHA_HORA) VALUES ('$materia', '$docente', '$id', '$titulo', '$subtitulo', '$descripcion', now() )";
 
-		$query1 = "INSERT INTO `bitacora`(`IDBITA`, `IDUSUARIO`, `ACCION`, `ANTIGUO`, `NUEVO`, `FECHA`) VALUES ( null, '$nombreUsuario','INSERT', null, '$descripcion', now() )";
+		$query1 = "INSERT INTO `bitacora`(`IDBIT`, `IDUSUARIO`, `ACCION`, `ANTIGUO`, `NUEVO`, `FECHA`) VALUES ( null, '$nombreUsuario','INSERT', null, '$descripcion', now() )";
 
 		mysqli_query($conexion, $query) or die('Revise su consulta de insercion');
 		mysqli_query($conexion, $query1) or die('Revise su consulta de insercion2');
@@ -106,7 +106,7 @@
 
 		//$variable = mysqli_query($conexion, $queryRec)or die('Revise su consulta UPDATE');
 
-		$query1 = "INSERT INTO `bitacora`(`IDBITA`, `IDUSUARIO`, `ACCION`, `ANTIGUO`, `NUEVO`, `FECHA`) VALUES ( null, '$nombreUsuario','INSERT', '$cadena', '$descripcionAv', now() )";
+		$query1 = "INSERT INTO `bitacora`(`IDBIT`, `IDUSUARIO`, `ACCION`, `ANTIGUO`, `NUEVO`, `FECHA`) VALUES ( null, '$nombreUsuario','UPDATE', '$cadena', '$descripcionAv', now() )";
 
 		mysqli_query($conexion, $query1)or die('Revise su consulta UPDATE');
 
@@ -133,7 +133,7 @@
 		global $conexion;
 
 		$query = "DELETE FROM avisos WHERE CODAVISO=$id_aviso";
-		$query1 = "INSERT INTO `bitacora`(`IDBITA`, `IDUSUARIO`, `ACCION`, `ANTIGUO`, `NUEVO`, `FECHA`) VALUES ( null, '$nombreUsuario', 'INSERT', '$descripcion', null, now() )";
+		$query1 = "INSERT INTO `bitacora`(`IDBIT`, `IDUSUARIO`, `ACCION`, `ANTIGUO`, `NUEVO`, `FECHA`) VALUES ( null, '$nombreUsuario', 'INSERT', '$descripcion', null, now() )";
 
 		mysqli_query($conexion, $query)or die('Revise su consulta DELETE');
 		mysqli_query($conexion, $query1)or die('Revise su consulta DELETE 1');

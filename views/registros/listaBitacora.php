@@ -82,7 +82,7 @@
                 <td><?php echo $bitacora['ACCION']?></td>
                 <td><?php echo $bitacora['ANTIGUO'] ?></td>
                 <td><?php echo $bitacora['NUEVO'] ?></td>
-                <td><?php echo $bitacora['fecha'] ?></td>
+                <td><?php echo $bitacora['FECHA'] ?></td>
                 
               </tr>
             <?php endforeach; ?>
