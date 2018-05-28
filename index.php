@@ -29,7 +29,7 @@
     hora = "0" + hora
 
 
-    horaImprimible = hora + " : " + minuto + " : " + segundo
+    horaImprimible = hora + ":" + minuto + ":" + segundo
 
     document.form_reloj.reloj.value = horaImprimible
 
@@ -42,130 +42,66 @@
 	<link rel="stylesheet" type="text/css" href="main.css">
 	 <!-- Bootstrap CSS -->
 
-
 	<title>Principal</title>
 
 </head>
 
 
 
-<body onload="mueveReloj()" background="uploads/fondoF.jpg">
-	<?php
-		if (isset($_SESSION['login_nombre'])){
-			if(($_SESSION['login_tipo_usuario'])=="ADMIN"){
-	?>
+
+<body onload="mueveReloj()" background="uploads/fondoF.jpg" style="overflow-x: hidden;">
+
 				<header class="">
 					<nav class="navbar navbar-dark bg-dark navbar-expand-lg ">
-						<h1 class="h1" style="color: white"></h1>
+						
+
+						<div class="col-md-8" align="center">
+							<h1 style="color: white ; font-family: Roboto;" >LABORATORIOS INFORMATICA-SISTEMAS</h1>
+						</div>
 
 						<div class=" col-md-3 offset-md-0 text-align text-center">
 
 									<form name="form_reloj">
-
-    										<input type="text" name="reloj" size="10" class="display-3 text-center" onfocus="window.document.form_reloj.reloj.blur()" style="background-color: #343a40; color: white;">
-
+										
+    										<input type="text" name="reloj" size="7" class="display-3 text-center" onfocus="window.document.form_reloj.reloj.blur()" style="background-color: #343a40; color: white; border:#343a40; font-family: Roboto; ">
+    										
 									</form>
 						</div>
 
+						
+						
+  						<div class="collapse navbar-collapse col-md-1" id="navbarTogglerDemo01">
 
-  						<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 							<div class="navbar-nav ml-auto text-center">
 
 								<li class="nav-item dropdown">
 							        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							          Menu
+							          
 							        </a>
 							        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							        <?php 
+							         	if (!isset($_SESSION['login_nombre'])){?>
+							        	<a class="dropdown-item" data-toggle="modal" data-target="#modalLogin">Iniciar sesion</a>
+							        <?php } ?>
 							          	<a class="dropdown-item" href="views/avisos/listaAvisos.php">Avisos</a>
 							          	<a class="dropdown-item" href="views/publicidades/listaPublicidades.php">Anuncios</a>
 							         <div class="dropdown-divider"></div>
+							         <?php 
+							         	if (isset($_SESSION['login_nombre'])){
+							         		if(($_SESSION['login_tipo_usuario'])=="ADMIN"){
+							         ?>
 							         	<a class="dropdown-item" href="views/registros/listaBitacora.php">Bitacora</a>
+							         		<?php } ?>
 							          	<a class="dropdown-item" href="controllers/logout.php">Logout</a>
+
+							      	<?php } ?>
 
 							        </div>
 							    </li>
 
 							</div>
 						</div>
-					</nav>
-				</header>
-			<?php
-			}else{
-			?>
-				<header>
 
-					<nav class="navbar navbar-dark bg-dark navbar-expand-lg ">
-						<h1 class="h1" style="color: white"></h1>
-							<div class=" col-md-3 offset-md-0 text-align text-center">
-
-								<form name="form_reloj">
-
-    								<input type="text" name="reloj" size="10" class="display-3 text-center" onfocus="window.document.form_reloj.reloj.blur()" style="background-color: #343a40; color: white;">
-
-								</form>
-							</div>
-
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbasarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-   							 <span class="navbar-toggler-icon"></span>
-	  					</button>
-
-  						<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-							<div class="navbar-nav ml-auto text-center">
-
-								<li class="nav-item dropdown">
-							        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							          Menu
-							        </a>
-							        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							          	<a class="dropdown-item" href="views/avisos/listaAvisos.php">Avisos</a>
-							          	<a class="dropdown-item" href="views/publicidades/listaPublicidades.php">Anuncios</a>
-							         <div class="dropdown-divider"></div>
-							          	<a class="dropdown-item" href="controllers/logout.php">Logout</a>
-
-							        </div>
-							    </li>
-
-							</div>
-						</div>
-					</nav>
-
-
-				</header>
-	<?php
-			}
-		}else{
-	?>
-			<header class="header">
-				<nav class="navbar navbar-dark bg-dark navbar-expand-lg ">
-					<h1 class="h1" style="color: white"></h1>
-
-						<div class=" col-md-3 offset-md-0 text-align text-center" >
-
-									<form name="form_reloj">
-
-    										<input type="text" name="reloj" size="10" class="display-3 text-center border border-dark" onfocus="window.document.form_reloj.reloj.blur()" style="background-color: #343a40; color: white;">
-
-									</form>
-						</div>
-
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="		navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-   						 <span class="navbar-toggler-icon"></span>
-  					</button>
-  					<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-						<div class="navbar-nav ml-auto text-center">
-
-							<li class="nav-item dropdown">
-							        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							          Menu
-							        </a>
-							        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							          	<a class="dropdown-item" href="views/avisos/listaAvisos.php">Avisos</a>
-							          	<a class="dropdown-item" href="views/publicidades/listaPublicidades.php">Anuncios</a>
-
-
-							</li>
-
-							<button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modalLogin">Iniciar Secion</button>
 							<div class="modal fade " id="modalLogin" role="dialog">
 								<div class="modal-dialog">
 									<div class="modal-content">
@@ -198,15 +134,10 @@
 									</div>
 								</div>
 							</div>
-							        </div>
 
-						</div>
-					</div>
-				</nav>
-			</header>
-	<?php
-		}
-	?>
+					</nav>
+				</header>
+			
 
     <section>
 
@@ -214,7 +145,8 @@
     		<div class="row text-center">
 
     			<div class="col-xs-10 col-md-8 col-sm-8 sin_padding portada" >
-    				<marquee direction="up" align="center" width="100%" height="600rem" scrollAmount="3">
+
+    				<marquee direction="up" align="center" width="100%" height="550rem" scrollAmount="3">
 
 						<?php
 
@@ -224,27 +156,31 @@
 	        	    	?>
     		          	<table border="2" align="center" class="table table-bordered">
 	    	          		<tr align="center" >
-            	    			<td colspan="2" height="50px" class="bg-dark" style="color: white; text-transform: uppercase;"><h2><b><?php echo $aviso['TITULO'] ?></b></h4></td>
+
+            	    			<td colspan="2" height="50px" class="bg-dark" style="color: white; text-transform: uppercase; font-family: Roboto;"><h4><b><?php echo $aviso['TITULO'] ?></b></h4></td>
+
               				</tr>
 
             			<?php
 	        	      		if (!empty($aviso['SUBTITULO'])) {
     		        	?>
 			              	<tr align="center" >
-    	    	      			<td colspan="2" height="30px" class="table-light "><?php echo $aviso['SUBTITULO'] ?></td>
+    	    	      			<td colspan="2" height="30px" class="table-light " style="font-family: Roboto;"><?php echo $aviso['SUBTITULO'] ?></td>
         	    		  	</tr>
             			<?php
 	    	      			}
 	    		        ?>
 		        	      	<tr align="center">
-        	    	    		<td width="50%" class="bg-info"><?php echo $aviso['NOMBREDOC'].' '.$aviso['APELLIDODOC'] ?></td>
-            	    			<td class="table-secondary"><?php echo $aviso['NOMBREMAT'] ?></td>
+        	    	    		<td width="50%" class="bg-info" style="font-family: Roboto;"><?php echo $aviso['NOMBREDOC'].' '.$aviso['APELLIDODOC'] ?></td>
+            	    			<td class="table-secondary" style="font-family: Roboto;"><?php echo $aviso['NOMBREMAT'] ?></td>
 	            		   	</tr>
     	    	    	   	<tr align="center">
-        		        		<td colspan="2" class="table-info"><?php echo $aviso['CONTENIDO'] ?></td>
+        		        		<td colspan="2" class="table-info" style="font-family: Roboto;"><?php echo $aviso['CONTENIDO'] ?></td>
 	    	        	    </tr>
 		                	<tr align="right">
-        	        			<td colspan="2" class="table-light"><?php echo $aviso['FECHA_HORA'] ?></td>
+
+        	        			<td colspan="2" class="table-light" style="font-family: Roboto;"><?php echo $aviso['FECHA_HORA'] ?></td>                
+
 	        	      		</tr>
     	        		</table>
 
@@ -256,6 +192,7 @@
     			</div>
 
     			<div class="col-xs-2 col-md-4 col-sm-4 sin_padding">
+    				
 
   					<div class="container-fluit">
 
@@ -268,8 +205,9 @@
       							<div class="carousel-inner">
 
       								<div class="carousel-item active">
-          								<img class="" width="100%" height="600rem" src="uploads/log2.png">
+          								<img class="" width="100%" height="550rem" src="uploads/log2.png">
         							</div>
+
 
       								<?php
    										$imagenes = listaImagenes();
@@ -277,7 +215,7 @@
    										foreach ($imagenes as $imagen):
    									?>
    										<div class="carousel-item">
-          									<img class="d-block" width="100%" height="600rem" src="<?php echo $imagen['ubicacion']?>">
+          									<img class="d-block" width="100%" height="550rem" src="<?php echo $imagen['ubicacion']?>">
        									</div>
    									<?php
    										endforeach;
@@ -298,6 +236,7 @@
     		</div>
     	</div>
 
+
     </section>
 
     <footer>
@@ -306,9 +245,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-2">
-						<!-- www.tutiempo.net - Ancho:132px - Alto:50px -->
-<div id="TT_yvBgrxtxY2EcfjpANAVzzDDDztaATff2bd1t1cioa1D">El tiempo - Tutiempo.net</div>
-<script type="text/javascript" src="https://www.tutiempo.net/s-widget/l_yvBgrxtxY2EcfjpANAVzzDDDztaATff2bd1t1cioa1D"></script>
+						
+						<div id="TT_yvBgrxtxY2EcfjpANAVzzDDDztaATff2bd1t1cioa1D"></div>
+						<script type="text/javascript" src="https://www.tutiempo.net/s-widget/l_yvBgrxtxY2EcfjpANAVzzDDDztaATff2bd1t1cioa1D"></script>
+
 					</div>
 					<div class="col-10">
 						<h1 class="pt-sans" style="color:white" >
@@ -328,6 +268,7 @@
 
 			</MARQUEE>
 	</footer>
+
 
 	<script src="public/css/js/jquery.js"></script>
   	<script src="public/css/js/bootstrap.js"></script>
