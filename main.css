@@ -5,8 +5,14 @@
 body{
 	background-image: url(img_publicidad/logo_informaticaSistemas);
 }*/
+
 .sin_padding{
 	padding: 0;
+}
+.sin_paddingcarousel{
+  padding-left: 0;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 .portada{
    background: url(uploads/logos.png);

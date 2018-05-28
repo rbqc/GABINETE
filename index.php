@@ -48,7 +48,9 @@
 
 
 
+
 <body onload="mueveReloj()" background="uploads/fondoF.jpg" style="overflow-x: hidden;">
+
 				<header class="">
 					<nav class="navbar navbar-dark bg-dark navbar-expand-lg ">
 						
@@ -177,12 +179,10 @@
     	        		endforeach;
         	    		?>
 
-    	    	    	
-
 					</marquee>
     			</div>
 
-    			<div class="col-xs-2 col-md-4 col-sm-4 sin_padding">
+    			<div class="col-xs-2 col-md-4 col-sm-4 sin_paddingcarousel">
     				
   					<div class="container-fluit">
 
@@ -197,6 +197,7 @@
       								<div class="carousel-item active">
           								<img class="" width="100%" height="550rem" src="uploads/log2.png">
         							</div>
+
 
       								<?php
    										$imagenes = listaImagenes();
