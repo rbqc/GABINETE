@@ -29,7 +29,7 @@
     hora = "0" + hora
 
 
-    horaImprimible = hora + " : " + minuto + " : " + segundo
+    horaImprimible = hora + ":" + minuto + ":" + segundo
 
     document.form_reloj.reloj.value = horaImprimible
 
@@ -42,7 +42,6 @@
 	<link rel="stylesheet" type="text/css" href="main.css">
 	 <!-- Bootstrap CSS -->
 
-
 	<title>Principal</title>
 
 </head>
@@ -52,27 +51,29 @@
 <body onload="mueveReloj()" background="uploads/fondoF.jpg" style="overflow-x: hidden;">
 				<header class="">
 					<nav class="navbar navbar-dark bg-dark navbar-expand-lg ">
-						<h1 class="h1" style="color: white"></h1>
+						
+
+						<div class="col-md-8" align="center">
+							<h1 style="color: white ; font-family: Roboto;" >LABORATORIOS INFORMATICA-SISTEMAS</h1>
+						</div>
 
 						<div class=" col-md-3 offset-md-0 text-align text-center">
 						
 									<form name="form_reloj">
 										
-    										<input type="text" name="reloj" size="10" class="h1 text-center" onfocus="window.document.form_reloj.reloj.blur()" style="background-color: #343a40; color: white;">
+    										<input type="text" name="reloj" size="7" class="display-3 text-center" onfocus="window.document.form_reloj.reloj.blur()" style="background-color: #343a40; color: white; border:#343a40; font-family: Roboto; ">
     										
 									</form>
 						</div>
 
-						<div class="col-md-8" align="center">
-							<h1 style="color: white">LABORATORIOS</h1>
-						</div>
+						
 						
   						<div class="collapse navbar-collapse col-md-1" id="navbarTogglerDemo01">
 							<div class="navbar-nav ml-auto text-center">
 								
 								<li class="nav-item dropdown">
 							        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							          MENU
+							          
 							        </a>
 							        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							        <?php 
@@ -148,27 +149,27 @@
 	        	    	?>
     		          	<table border="2" align="center" class="table table-bordered">
 	    	          		<tr align="center" >
-            	    			<td colspan="2" height="50px" class="bg-dark" style="color: white; text-transform: uppercase;"><h4><b><?php echo $aviso['TITULO'] ?></b></h4></td>
+            	    			<td colspan="2" height="50px" class="bg-dark" style="color: white; text-transform: uppercase; font-family: Roboto;"><h4><b><?php echo $aviso['TITULO'] ?></b></h4></td>
               				</tr>
 
             			<?php 
 	        	      		if (!empty($aviso['SUBTITULO'])) { 	
     		        	?>
 			              	<tr align="center" >
-    	    	      			<td colspan="2" height="30px" class="table-light "><?php echo $aviso['SUBTITULO'] ?></td>
+    	    	      			<td colspan="2" height="30px" class="table-light " style="font-family: Roboto;"><?php echo $aviso['SUBTITULO'] ?></td>
         	    		  	</tr>
             			<?php
 	    	      			}
 	    		        ?>
 		        	      	<tr align="center">
-        	    	    		<td width="50%" class="bg-info"><?php echo $aviso['NOMBREDOC'].' '.$aviso['APELLIDODOC'] ?></td>
-            	    			<td class="table-secondary"><?php echo $aviso['NOMBREMAT'] ?></td>
+        	    	    		<td width="50%" class="bg-info" style="font-family: Roboto;"><?php echo $aviso['NOMBREDOC'].' '.$aviso['APELLIDODOC'] ?></td>
+            	    			<td class="table-secondary" style="font-family: Roboto;"><?php echo $aviso['NOMBREMAT'] ?></td>
 	            		   	</tr>
     	    	    	   	<tr align="center">
-        		        		<td colspan="2" class="table-info"><?php echo $aviso['CONTENIDO'] ?></td>
+        		        		<td colspan="2" class="table-info" style="font-family: Roboto;"><?php echo $aviso['CONTENIDO'] ?></td>
 	    	        	    </tr>
 		                	<tr align="right">
-        	        			<td colspan="2" class="table-light"><?php echo $aviso['FECHA_HORA'] ?></td>                
+        	        			<td colspan="2" class="table-light" style="font-family: Roboto;"><?php echo $aviso['FECHA_HORA'] ?></td>                
 	        	      		</tr>
     	        		</table>      
 
